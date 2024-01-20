@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 
 
 import {registerUser,signInUser,logout,createIntrest} from "./Controller/user";
+import {createJob} from "./Controller/job";
 import { Auth } from './Middleware/user';
 // import {} from "./Controller/u"
 
@@ -17,7 +18,7 @@ dotenv.config();
 declare global{
     namespace Express {
         interface Request{
-            userId?:string
+            userId?:Object
         }
     }
 }
@@ -40,6 +41,7 @@ app.post("/register",registerUser);
 app.post("/signin",signInUser);
 app.get("/logout",logout)
 app.post("/createintrest",Auth,createIntrest);
+app.post("/createjob",Auth,createJob);
 
 
 

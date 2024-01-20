@@ -1,17 +1,16 @@
 import mongoose from "mongoose";
 
 const jobCategorySchema = new mongoose.Schema({
-    categoryName: {
-        type: String,
+    categoryName:{
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
         unique: true,
+        ref:"Job",
     },
-    interestedUsers: {
-        type: Array,
+    interestedUsers:{
+        type:Array,
         default: []
     }
 })
 
-const JobCategory = mongoose.model("jobCategory", jobCategorySchema);
-
-export default JobCategory;
+export const JobCategory = mongoose.model("jobCategory", jobCategorySchema);

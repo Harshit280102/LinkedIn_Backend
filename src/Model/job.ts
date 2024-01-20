@@ -12,11 +12,10 @@ description:{
     required:true
 },
 categoryName:{
-    types:String,
+    type:String,
     required:true
 },owner:{
     type: mongoose.Schema.Types.ObjectId,
-    required:true,
     ref:"User"
 },
 ppl_Applied: {

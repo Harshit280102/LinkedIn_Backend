@@ -19,7 +19,7 @@ categoryName:{
     ref:"User"
 },
 ppl_Applied: {
-    type:[String],
+    type:Array,
     default: []
 }
 });

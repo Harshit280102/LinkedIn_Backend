@@ -2,14 +2,17 @@ import mongoose from "mongoose";
 
 const jobCategorySchema = new mongoose.Schema({
     categoryName:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        unique: true,
-        ref:"Job",
+        type:String,
+        required:true,
+        unique:true
+    },
+    jobs:{
+        type:Array,
+        default:[]  
     },
     interestedUsers:{
         type:Array,
-        default: []
+        default:[]
     }
 })
 

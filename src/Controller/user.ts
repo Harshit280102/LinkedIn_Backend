@@ -1,10 +1,10 @@
 import { RequestHandler,Request,Response } from "express";
 import bcryptjs from "bcryptjs";
 import  Jwt from "jsonwebtoken";
-import  jwtDecode  from "jwt-decode";
 import { User } from '../Model/user';
 import {JobCategory} from '../Model/jobcategories';
 import {Job} from '../Model/job';
+
 
 
 
@@ -76,7 +76,7 @@ export const signInUser:RequestHandler=async(req:Request,res:Response)=>{
        
         res.cookie("authToken", authToken, { httpOnly: true });
         res.cookie("refreshToken", refreshToken, { httpOnly: true });
-        res.status(200).json({ message: "Login Successfull...", userId: user._id });
+        res.status(200).json({ message: "Login Successfully...", userId: user._id });
     }catch(err){
         return res.status(400).send("Error in SignIn");
     }
@@ -88,7 +88,7 @@ export const logout = async (req:Request, res:Response) => {
       res.clearCookie("authToken");
       res.clearCookie("refreshToken");
       return res.status(200).json({
-        message: "Logout Successful",
+        message: "Logout Successfully..",
       });
     } catch (error) {
       console.log(error);
@@ -109,9 +109,10 @@ export const createIntrest =async (req:Request,res:Response)=>{
         return res.status(400).send("User or Job is Not in the Database !!");
     }else{
         user.intrest.push(intrest);
-        jobcategory.interestedUsers.push(intrest);
+        jobcategory.interestedUsers.push(userId);
     }
     const save=await user.save();
     const catsave=await jobcategory.save();
-    res.status(200).json({save,catsave})
+
+    res.status(200).json({save,catsave});
 }

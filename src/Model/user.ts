@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
 
-
-
 const userSchema =new mongoose.Schema({
 name:{
     type:String,
@@ -16,7 +14,7 @@ password:{
     require:true
 },
 intrest:{
-    types:Array,
+    type:Array,
     default:[]
 },jobs: {
     type: Array,

@@ -116,3 +116,6 @@ export const createIntrest =async (req:Request,res:Response)=>{
 
     res.status(200).json({save,catsave});
 }
+
+
+//Okay Tested Email Is Sending

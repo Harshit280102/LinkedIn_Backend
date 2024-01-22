@@ -69,3 +69,5 @@ export const applyJob = async(req:Request,res:Response)=>{
    
 //   
 }
+
+//Okay Tested Email Is Sending

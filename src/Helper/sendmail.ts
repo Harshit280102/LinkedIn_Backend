@@ -16,5 +16,7 @@ export const sendMail =async (req:Request,res:Response)=>{
         nmail(userid,categoryName,title,description);
     })
 
-    res.send("fhyhguh");
+    res.send("Email Is Send To Intrested User");
 }
+
+//Okay Tested Email Is Sending
